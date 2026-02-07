@@ -8,6 +8,22 @@
   Expected:    4
   Match:       True
 
+0.5 + 0.5
+  A bits:      0 0110 00000000000  0x3000
+  B bits:      0 0110 00000000000  0x3000
+  Result bits: 0 0111 00000000000  0x3800
+  Computed:    1
+  Expected:    1
+  Match:       True
+
+1.0 + 1.0
+  A bits:      0 0111 00000000000  0x3800
+  B bits:      0 0111 00000000000  0x3800
+  Result bits: 0 1000 00000000000  0x4000
+  Computed:    2
+  Expected:    2
+  Match:       True
+
 3.5 + -1.5
   A bits:      0 1000 11000000000  0x4600
   B bits:      1 0111 10000000000  0xbc00
@@ -24,6 +40,30 @@
   Expected:    0
   Match:       True
 
+2.0 + 3.0
+  A bits:      0 1000 00000000000  0x4000
+  B bits:      0 1000 10000000000  0x4400
+  Result bits: 0 1001 01000000000  0x4a00
+  Computed:    5
+  Expected:    5
+  Match:       True
+
+1.75 + -1.5
+  A bits:      0 0111 11000000000  0x3e00
+  B bits:      1 0111 10000000000  0xbc00
+  Result bits: 0 0101 00000000000  0x2800
+  Computed:    0.25
+  Expected:    0.25
+  Match:       True
+
+-1.5 + 1.75
+  A bits:      1 0111 10000000000  0xbc00
+  B bits:      0 0111 11000000000  0x3e00
+  Result bits: 0 0101 00000000000  0x2800
+  Computed:    0.25
+  Expected:    0.25
+  Match:       True
+
 0.0 + 5.0
   A bits:      0 0000 00000000000  0x0
   B bits:      0 1001 01000000000  0x4a00
@@ -34,8 +74,8 @@
 
 -0.0 + 0.0
   A bits:      1 0000 00000000000  0x8000
-  B bits:      0 0000 00000000000
-  Result bits: 0 0000 00000000000
+  B bits:      0 0000 00000000000  0x0
+  Result bits: 0 0000 00000000000  0x0
   Computed:    0
   Expected:    0
   Match:       True
@@ -57,33 +97,33 @@
   Match:       True
 
 1.00048828125 + 0.00048828125
-  A bits:      0011100000000001  0x3801
-  B bits:      0000000001000000  0x40
-  Result bits: 0011100000000010  0x3802
+  A bits:      0 0111 00000000001  0x3801
+  B bits:      0 0000 00001000000  0x40
+  Result bits: 0 0111 00000000010  0x3802
   Computed:    1.0009765625
   Expected:    1.0009765625
   Match:       True
 
 1.99951171875 + 0.00048828125
-  A bits:      0011111111111111  0x3fff
-  B bits:      0000000001000000  0x40
-  Result bits: 0100000000000000  0x4000
+  A bits:      0 0111 11111111111  0x3fff
+  B bits:      0 0000 00001000000  0x40
+  Result bits: 0 1000 00000000000  0x4000
   Computed:    2
   Expected:    2
   Match:       True
 
 24.0 + -24.0
-  A bits:      0101110000000000  0x5c00
-  B bits:      1101110000000000  0xdc00
-  Result bits: 0000000000000000  0x0
+  A bits:      0 1011 10000000000  0x5c00
+  B bits:      1 1011 10000000000  0xdc00
+  Result bits: 0 0000 00000000000  0x0
   Computed:    0
   Expected:    0
   Match:       True
 
 5000 + -5000
-  A bits:      0111100000000000  0x7800
-  B bits:      1111100000000000  0xf800
-  Result bits: 0111100000000001  0x7801
+  A bits:      0 1111 00000000000  0x7800
+  B bits:      1 1111 00000000000  0xf800
+  Result bits: 0 1111 00000000001  0x7801
   Computed:    nan
   Expected:    0
   Match:       False
